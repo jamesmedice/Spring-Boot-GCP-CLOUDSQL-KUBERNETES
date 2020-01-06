@@ -1,0 +1,31 @@
+spring:
+    cloud:
+        config:
+            namespace: default
+            enabled: true
+            fail-fast: false 
+            name: Cloud
+            profile: dev, cloud, mysql
+            label: master
+        kubernetes:
+            reload:
+                enabled: true
+            config:
+                enableApi: true
+                enabled: true
+                name: elastic-app
+                namespace: default
+                sources:
+                 - name: secretenv
+            secrets:
+                name: mysqlcontainer
+                namespace: default
+        gcp:
+            project-id: qwiklabs-gcp-01-47c6c1afa55f
+            credentials:
+                location: classpath:key.json
+            sql:
+                enabled: true
+                database-type: mysql
+                database-name: marketplace
+                instance-connection-name: qwiklabs-gcp-01-47c6c1afa55f:us-central1:mysql-db-container      

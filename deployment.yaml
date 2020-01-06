@@ -1,0 +1,59 @@
+--- 
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+  labels: 
+    app: elastic-app
+  name: elastic-app
+spec: 
+  replicas: 5
+  selector:
+    matchLabels:
+      app: elastic-app
+  template: 
+    metadata: 
+      labels: 
+        app: elastic-app
+    spec: 
+      containers: 
+        - name: elastic-app
+          image: gcr.io/qwiklabs-gcp-01-47c6c1afa55f/elastic-app:latest
+          imagePullPolicy: Always
+          ports: 
+            - containerPort: 8080
+          env:
+            - name: SECRETS_USER
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-user-credentials
+                  key: username
+            - name: SECRETS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cloudsql-user-credentials
+                  key: password           
+        - name: cloudsql-proxy
+          image: gcr.io/cloudsql-docker/gce-proxy:1.11
+          command: ["/cloud_sql_proxy", "-instances=qwiklabs-gcp-01-47c6c1afa55f:us-central1:mysql-db-container=tcp:3306", "-credential_file=/secrets/cloudsql/credentials.json"]
+          volumeMounts:
+            - name: secrets-volume
+              mountPath: /secrets/cloudsql
+              readOnly: true
+      volumes:
+        - name: secrets-volume
+          secret:
+            secretName: cloudsql-proxy-credentials
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: elastic-app
+spec:
+  selector:
+    app: elastic-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: LoadBalancer

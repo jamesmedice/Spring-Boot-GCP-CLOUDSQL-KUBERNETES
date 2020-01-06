@@ -1,0 +1,20 @@
+#set up properties
+management:
+    security:
+        enabled: false
+    endpoint:
+        restart:
+            enabled: true
+
+spring:
+    data:
+        rest: 
+            base-path: /v1
+    application:
+        name: elastic-app
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: ${SECRETS_PASSWORD}
+        username: ${SECRETS_USER}
+        schema: classpath:/schema.sql
+        initialization-mode: always
