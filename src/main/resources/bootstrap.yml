@@ -18,7 +18,7 @@ spring:
                 sources:
                  - name: secretenv
             secrets:
-                name: mysqlcontainer
+                name: cloudsql-user-credentials
                 namespace: default
         gcp:
             project-id: qwiklabs-gcp-01-47c6c1afa55f
