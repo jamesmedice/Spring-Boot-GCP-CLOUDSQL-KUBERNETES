@@ -5,12 +5,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.medici.app.entity.Invoice;
-import com.medici.app.repository.InvoiceRepository;
-
 @Configuration
-@EntityScan(basePackageClasses = { Invoice.class })
-@EnableJpaRepositories(basePackageClasses = { InvoiceRepository.class })
+@EntityScan(basePackages = "com.medici.app.entity")
+@EnableJpaRepositories(basePackages = "com.medici.app.repository")
 @EnableAutoConfiguration
 public class AutoConfiguration {
 

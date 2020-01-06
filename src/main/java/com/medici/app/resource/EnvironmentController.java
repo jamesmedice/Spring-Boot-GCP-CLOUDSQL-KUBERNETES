@@ -1,4 +1,4 @@
-package com.medici.app.repository;
+package com.medici.app.resource;
 
 import java.util.HashMap;
 import java.util.Iterator;
