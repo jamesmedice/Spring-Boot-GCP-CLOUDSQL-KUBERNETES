@@ -12,8 +12,7 @@ spring:
             base-path: /v1
     application:
         name: elastic-app
-    datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
+    datasource: 
         password: ${SECRETS_PASSWORD}
         username: ${SECRETS_USER}
         schema: classpath:/schema.sql
