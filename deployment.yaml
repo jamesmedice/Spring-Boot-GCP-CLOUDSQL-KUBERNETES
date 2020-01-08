@@ -17,7 +17,7 @@ spec:
     spec: 
       containers: 
         - name: elastic-app
-          image: gcr.io/qwiklabs-gcp-8886870703be74c3/elastic-app:latest
+          image: gcr.io/qwiklabs-gcp-540882cc4552182d/elastic-app:latest
           imagePullPolicy: Always
           ports: 
             - containerPort: 8080
@@ -34,7 +34,7 @@ spec:
                   key: password           
         - name: cloudsql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.11
-          command: ["/cloud_sql_proxy", "-instances=qwiklabs-gcp-8886870703be74c3:us-central1:mysql-db-container=tcp:3306", "-credential_file=/secrets/cloudsql/credentials.json"]
+          command: ["/cloud_sql_proxy", "-instances=qwiklabs-gcp-540882cc4552182d:us-central1:mysql-db-container=tcp:3306", "-credential_file=/secrets/cloudsql/credentials.json"]
           volumeMounts:
             - name: secrets-volume
               mountPath: /secrets/cloudsql
