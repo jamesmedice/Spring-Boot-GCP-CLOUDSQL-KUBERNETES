@@ -14,6 +14,7 @@ spring:
         name: elastic-app
     datasource: 
         driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://${RDS_HOSTNAME:127.0.0.1}:${RDS_PORT:3306}/${RDS_DB_NAME:marketplace}?createDatabaseIfNotExist=true
         password: ${SECRETS_PASSWORD:tpm1234}
         username: ${SECRETS_USER:root}
         schema: classpath:/schema.sql
