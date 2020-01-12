@@ -3,8 +3,7 @@ spring:
         config:
             namespace: default
             enabled: true
-            fail-fast: false 
-            name: Cloud
+            fail-fast: false
             profile: dev, cloud, mysql
             label: master
         kubernetes:
@@ -21,9 +20,9 @@ spring:
                 name: cloudsql-user-credentials
                 namespace: default
         gcp:
-            project-id: qwiklabs-gcp-9249e7f7b0e12f9a
+            project-id: qwiklabs-gcp-d30f23cf0764a75f
             sql:
                 enabled: true
                 database-type: mysql
                 database-name: marketplace
-                instance-connection-name: qwiklabs-gcp-9249e7f7b0e12f9a:us-central1:mysql-db-container      
+                instance-connection-name: qwiklabs-gcp-d30f23cf0764a75f:us-central1:mysql-db-container      
