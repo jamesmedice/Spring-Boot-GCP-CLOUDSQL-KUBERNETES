@@ -20,9 +20,9 @@ spring:
                 name: cloudsql-user-credentials
                 namespace: default
         gcp:
-            project-id: qwiklabs-gcp-00-5c5c02051470
+            project-id: qwiklabs-gcp-5fffc8bf8af5979b
             sql:
                 enabled: true
                 database-type: mysql
                 database-name: marketplace
-                instance-connection-name: qwiklabs-gcp-00-5c5c02051470:us-central1:mysql-db-container      
+                instance-connection-name: qwiklabs-gcp-5fffc8bf8af5979b:us-central1:mysql-db-container      
