@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysqldb
+data:
+  connection-name: qwiklabs-gcp-01-f2befd166b6e:us-central1:marketplace=tcp:3306
+  project-id: qwiklabs-gcp-01-f2befd166b6e
+  profile: staging

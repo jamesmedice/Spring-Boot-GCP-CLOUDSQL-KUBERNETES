@@ -1,9 +1,10 @@
 FROM maven:3.5.2-jdk-8-alpine as BUILD
+WORKDIR /app
 COPY pom.xml /app/
 COPY src /app/src/
-WORKDIR /app
 RUN mvn clean package -DskipTests
 
-FROM openjdk:8-jre-alpine
+FROM alpine
+WORKDIR /app
 COPY --from=BUILD /app/target/*.jar  application.jar
 ENTRYPOINT ["java", "-jar", "/application.jar"]
