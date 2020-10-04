@@ -17,7 +17,7 @@ spec:
     spec: 
       containers: 
         - name: elastic-app
-          image: gcr.io/${PROJECT_ID}/elastic-app:latest
+          image: gcr.io/qwiklabs-gcp-01-18980c4e76f7/elastic-app:latest
           imagePullPolicy: Always
           ports: 
             - containerPort: 8080
