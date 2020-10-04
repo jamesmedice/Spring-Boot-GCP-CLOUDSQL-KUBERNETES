@@ -1,4 +1,4 @@
 #set up properties
 management:
-  application:
-    datasource: mysql
+    application:
+        datasource: mysql

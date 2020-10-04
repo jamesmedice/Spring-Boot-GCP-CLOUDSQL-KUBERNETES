@@ -6,8 +6,8 @@ management:
         restart:
             enabled: true
 spring:
-  profiles:
-    active: ${PROFILE}
+    profiles:
+        active: ${PROFILE}
     data:
         rest: 
             base-path: /v1
