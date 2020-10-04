@@ -5,7 +5,10 @@ metadata:
   labels: 
     app: proxy
   name: proxy-app
-spec: 
+spec:
+  selector:
+    matchLabels:
+      app: proxy-app 
   template: 
     metadata: 
       labels: 
